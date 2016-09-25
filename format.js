@@ -28,7 +28,7 @@ var removeBottomTable = () => {
   if (footer[0]) { footer[0].remove(); }
 };
 
-var format = () => {
+var formatEditorial = () => {
   displayAllTabs();
   expandCodeBlock();
   removeComments();
@@ -36,8 +36,26 @@ var format = () => {
   removeBottomTable();
 };
 
+var setMainContent = () => {
+  let content = document.getElementsByClassName("problemText")[0];
+  if (content && content.innerHTML) {
+    document.body.innerHTML = content.innerHTML;
+  }
+};
+
+var setTextColor = () => {
+  let elements = Array.from(document.getElementsByClassName("statText"));
+  elements.forEach(e => e.style.setProperty("color", "black", "important"));
+};
+
+var formatProblem = () => {
+  setMainContent();
+  setTextColor();
+};
+
 chrome.runtime.onMessage.addListener(
   (request, sender) => {
-    if (request.command === "format") { format(); }
+    if (request.pageType === "editorial") { formatEditorial(); }
+    else if (request.pageType === "problem") { formatProblem(); }
   }
 );

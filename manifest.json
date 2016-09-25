@@ -4,11 +4,12 @@
   "name": "Printable Editorial",
   "short_name": "TC printable",
   "description": "Format an editorial page",
-  "version": "0.0.1",
+  "version": "0.0.2",
 
   "permissions": [
     "contextMenus",
-    "*://apps.topcoder.com/*"
+    "*://apps.topcoder.com/*",
+    "*://community.topcoder.com/*problem_statement*"
   ],
 
   "icons": {
@@ -26,7 +27,8 @@
   "content_scripts": [
     {
       "matches": [
-        "*://apps.topcoder.com/*"
+        "*://apps.topcoder.com/*",
+        "*://community.topcoder.com/*problem_statement*"
       ],
       "js": [
         "format.js"
