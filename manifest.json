@@ -4,7 +4,7 @@
   "name": "Printable Editorial",
   "short_name": "TC printable",
   "description": "Format an editorial page",
-  "version": "0.0.3",
+  "version": "0.0.4",
 
   "permissions": [
     "contextMenus",
