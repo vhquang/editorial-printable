@@ -37,10 +37,16 @@ var formatEditorial = () => {
 };
 
 var setMainContent = () => {
-  let content = document.getElementsByClassName("problemText")[0];
-  if (content && content.innerHTML) {
-    document.body.innerHTML = content.innerHTML;
-  }
+    let element = document.getElementsByClassName("problemText")[0];
+    while(element) {
+      // there is another wrapping table, but the text is more compact without it
+      if (element.tagName.toLowerCase() === "table") break;
+      element = element.parentElement;
+    }
+    let content = element;
+    if (content && content.innerHTML) {
+      document.body.innerHTML = content.innerHTML;
+    }
 };
 
 var setTextColor = () => {
